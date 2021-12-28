@@ -6,8 +6,7 @@ class Analista(
 
     override val bonificacao: Double
         get() {
-            println("bonificaçao analista")
-            return super.bonificacao + salario * 0.1
+            return salario * 0.1
         }
 
 
