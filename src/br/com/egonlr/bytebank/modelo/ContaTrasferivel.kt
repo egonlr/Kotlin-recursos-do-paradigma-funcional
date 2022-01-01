@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 abstract class ContaTrasferivel (
     titular: String,
     numero: Int

@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 class Cliente(
     val nome: String,
     val cpf: String,

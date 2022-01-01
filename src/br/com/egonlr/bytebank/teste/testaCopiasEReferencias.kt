@@ -1,3 +1,6 @@
+import br.com.egonlr.bytebank.modelo.ContaCorrente
+import br.com.egonlr.bytebank.modelo.ContaPoupanca
+
 fun testaCopiasEReferencias() {
     val numeroX = 10
     var numeroY = numeroX

@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 class ContaCorrente(
     titular: String,
     numero: Int)

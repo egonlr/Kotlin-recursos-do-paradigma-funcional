@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 class Analista(
     nome: String,
     cpf: String,

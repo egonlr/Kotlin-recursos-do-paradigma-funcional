@@ -1,3 +1,8 @@
+import br.com.egonlr.bytebank.modelo.Analista
+import br.com.egonlr.bytebank.modelo.CalculadoraBonificacao
+import br.com.egonlr.bytebank.modelo.Diretor
+import br.com.egonlr.bytebank.modelo.Gerente
+
 fun testaFuncionarios() {
     val alex = Analista(
         nome = "Alex",

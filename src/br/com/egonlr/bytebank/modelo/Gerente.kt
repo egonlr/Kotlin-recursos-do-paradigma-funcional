@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 class Gerente(
     nome: String,
     cpf: String,

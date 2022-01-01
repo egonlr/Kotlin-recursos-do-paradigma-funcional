@@ -1,3 +1,7 @@
+import br.com.egonlr.bytebank.modelo.ContaCorrente
+import br.com.egonlr.bytebank.modelo.ContaPoupanca
+import br.com.egonlr.bytebank.modelo.ContaSalario
+
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
         titular = "Alex",
@@ -42,5 +46,5 @@ fun testaContasDiferentes() {
     println("saldo corrente: ${contaCorrente.saldo}")
     println("saldo poupança: ${contaPoupanca.saldo}")
 
-    //contaSalario.transfere(200.0, contaCorrente)  //Conta salario não é aceito tranferencia
+    //contaSalario.transfere(200.0, contaCorrente)  //br.com.egonlr.bytebank.modelo.Conta salario não é aceito tranferencia
 }

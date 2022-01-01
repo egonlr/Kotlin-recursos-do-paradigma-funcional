@@ -1,3 +1,5 @@
+package br.com.egonlr.bytebank.modelo
+
 abstract class Conta(
     var titular: String,
     val numero: Int

@@ -1,3 +1,6 @@
+import br.com.egonlr.bytebank.modelo.ContaCorrente
+import br.com.egonlr.bytebank.modelo.ContaPoupanca
+
 fun testaComportamentosConta() {
     val contaAlex = ContaCorrente(titular = "Alex", numero = 1000)
     contaAlex.deposita(200.0)

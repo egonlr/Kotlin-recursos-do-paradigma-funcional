@@ -1,3 +1,8 @@
+import br.com.egonlr.bytebank.modelo.Cliente
+import br.com.egonlr.bytebank.modelo.Diretor
+import br.com.egonlr.bytebank.modelo.Gerente
+import br.com.egonlr.bytebank.modelo.SistemaInterno
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         "Egon",
