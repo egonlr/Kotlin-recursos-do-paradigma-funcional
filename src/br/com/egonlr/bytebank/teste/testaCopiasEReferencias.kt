@@ -1,3 +1,4 @@
+import br.com.egonlr.bytebank.modelo.Cliente
 import br.com.egonlr.bytebank.modelo.ContaCorrente
 import br.com.egonlr.bytebank.modelo.ContaPoupanca
 
@@ -9,14 +10,14 @@ fun testaCopiasEReferencias() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = ContaCorrente("João", 1002)
-    contaJoao.titular = "João"
-    var contaMaria = ContaPoupanca("Maria", 1003)
-    contaMaria.titular = "Maria"
-    contaJoao.titular = "João"
+    val joao = Cliente(nome = "João", cpf="", senha=1)
+    val contaJoao = ContaCorrente(titular = joao, numero = 1002)
 
-    println("titular conta joao: ${contaJoao.titular}")
-    println("titular conta maria: ${contaMaria.titular}")
+    val maria = Cliente(nome = "Maria", cpf="", senha=1)
+    var contaMaria = ContaPoupanca(titular = maria, numero = 1003)
+
+    println("titular conta joao: ${contaJoao.titular.nome}")
+    println("titular conta maria: ${contaMaria.titular.nome}")
 
     println(contaJoao)
     println(contaMaria)

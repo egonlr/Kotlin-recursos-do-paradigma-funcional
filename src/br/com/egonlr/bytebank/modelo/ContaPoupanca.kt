@@ -1,7 +1,7 @@
 package br.com.egonlr.bytebank.modelo
 
 class ContaPoupanca(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : ContaTrasferivel(
     titular = titular,

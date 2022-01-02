@@ -1,7 +1,7 @@
 package br.com.egonlr.bytebank.modelo
 
 class ContaSalario (
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,

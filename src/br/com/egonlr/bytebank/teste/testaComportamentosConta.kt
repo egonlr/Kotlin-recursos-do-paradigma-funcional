@@ -1,18 +1,22 @@
+import br.com.egonlr.bytebank.modelo.Cliente
 import br.com.egonlr.bytebank.modelo.ContaCorrente
 import br.com.egonlr.bytebank.modelo.ContaPoupanca
 
 fun testaComportamentosConta() {
-    val contaAlex = ContaCorrente(titular = "Alex", numero = 1000)
+
+    val alex = Cliente(nome = "Alex", cpf = "111.111.111.11", senha =1)
+    val contaAlex = ContaCorrente(titular = alex, numero = 1000)
     contaAlex.deposita(200.0)
 
-    val contaFran = ContaPoupanca(numero = 1001, titular = "Fran")
+    val fran = Cliente(nome = "Fran", cpf = "222.222.222.22", senha =2)
+    val contaFran = ContaPoupanca(numero = 1001, titular = fran)
     contaFran.deposita(300.0)
 
-    println(contaFran.titular)
+    println(contaFran.titular.nome)
     println(contaFran.numero)
     println(contaFran.saldo)
 
-    println(contaAlex.titular)
+    println(contaAlex.titular.nome)
     println(contaAlex.numero)
     println(contaAlex.saldo)
 

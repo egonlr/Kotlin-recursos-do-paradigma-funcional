@@ -1,26 +1,38 @@
-import br.com.egonlr.bytebank.modelo.ContaCorrente
-import br.com.egonlr.bytebank.modelo.ContaPoupanca
-import br.com.egonlr.bytebank.modelo.ContaSalario
+import br.com.egonlr.bytebank.modelo.*
 
 fun testaContasDiferentes() {
-    val contaCorrente = ContaCorrente(
-        titular = "Alex",
-        numero = 1000
+
+    val alex = Cliente(
+        nome = "Alex",
+        cpf = "111.111.111.11",
+        senha =1,
+        endereco = Endereco("Rua Vergueiro")
     )
 
+
+
+    val contaCorrente = ContaCorrente(titular = alex, numero = 1000)
+
+    println("titular ${contaCorrente.titular.nome}")
+    println("endereco ${contaCorrente.titular.endereco.logradouro}")
+
+    val fran = Cliente(nome = "Fran", cpf="", senha = 1)
     val contaPoupanca = ContaPoupanca(
-        titular = "Fran",
+        titular = fran,
         numero = 1001
     )
 
+    val gui = Cliente(nome = "Gui", cpf = "", senha = 2)
     val contaSalario = ContaSalario(
-    titular = "Gui,",
+    titular = gui,
     numero = 1002
     )
 
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)
     contaSalario.deposita(3000.0)
+
+
 
     println("saldo corrente: ${contaCorrente.saldo}")
     println("saldo poupança: ${contaPoupanca.saldo}")

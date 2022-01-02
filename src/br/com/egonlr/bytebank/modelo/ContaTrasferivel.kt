@@ -1,7 +1,7 @@
 package br.com.egonlr.bytebank.modelo
 
 abstract class ContaTrasferivel (
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,
