@@ -4,17 +4,25 @@ import br.com.egonlr.bytebank.teste.testaObjects
 
 fun main() {
 
-    testaFuncionarios()
+    val endereco = Endereco(
+        logradouro = "Rua vergueiro",
+        complemento = "Alura",
+        cep = "00000-00")
+    val enderecoNovo = Endereco(
+        logradouro = "Rua vergueiro",
+        complemento = "Alura",
+        cep = "00000-00")
 
-    val endereco = Endereco()
-    val objeto: Any = Any()
+    println(endereco.equals(enderecoNovo))
 
-    imprime(objeto)
-    imprime(1)
-    imprime(1.0)
-    imprime(endereco)
-    val teste:Any = imprime(endereco)
-    println(teste)
+    println(endereco.hashCode())
+    println(enderecoNovo.hashCode())
+
+    println(endereco.toString())
+    println(enderecoNovo.toString())
+
+    println("${endereco.javaClass}@${Integer.toHexString(endereco.hashCode())}")
+
 }
 
 fun imprime(valor: Any) : Any {
