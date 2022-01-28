@@ -1,26 +1,27 @@
 import br.com.egonlr.bytebank.modelo.*
+import br.com.egonlr.bytebank.teste.testaObjects
 
 
 fun main() {
-//    val fran = object : Autenticavel{
-//        val nome: String = "Fran"
-//        val cpf: String = "111.111.111-11"
-//        val senha: Int = 1000
-//
-//        override fun autentica(senha: Int) = this.senha == senha
-//    }
-//
-//    println("nome do cliente: ${fran.nome}")
-//    val sistemaInterno = SistemaInterno()
-//    sistemaInterno.entra(fran, 1000)
 
-    val alex = Cliente(nome = "Alex", cpf = "", senha = 1)
-    val contaPoupanca = ContaPoupanca(titular = alex, numero = 1000)
-    val contaCorrente = ContaCorrente(titular = alex, numero = 1001)
+    testaFuncionarios()
 
-    println("Total de contas:  ${Conta.total}")
+    val endereco = Endereco()
+    val objeto: Any = Any()
 
+    imprime(objeto)
+    imprime(1)
+    imprime(1.0)
+    imprime(endereco)
+    val teste:Any = imprime(endereco)
+    println(teste)
 }
+
+fun imprime(valor: Any) : Any {
+    println(valor)
+    return valor
+}
+
 
 
 
