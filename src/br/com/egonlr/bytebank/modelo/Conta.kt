@@ -4,7 +4,7 @@ package br.com.egonlr.bytebank.modelo
 abstract class Conta(
     var titular: Cliente,
     val numero: Int
-) {
+) : Autenticavel {
     var saldo = 0.0
         protected set
     companion object {
@@ -13,6 +13,10 @@ abstract class Conta(
     }
     init {
         total++
+    }
+
+    override fun autentica(senha: Int): Boolean {
+        return titular.autentica(senha)
     }
 
     fun deposita(valor: Double) {
