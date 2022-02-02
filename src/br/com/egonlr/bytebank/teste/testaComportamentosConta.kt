@@ -1,3 +1,5 @@
+import br.com.egonlr.bytebank.exception.FalhaAutenticacaoException
+import br.com.egonlr.bytebank.exception.SaldoInsuficienteException
 import br.com.egonlr.bytebank.modelo.Cliente
 import br.com.egonlr.bytebank.modelo.ContaCorrente
 import br.com.egonlr.bytebank.modelo.ContaPoupanca
@@ -46,11 +48,23 @@ fun testaComportamentosConta() {
 
     println("Transferência da conta da Fran para o Alex")
 
-    if (contaFran.transfere(destino = contaAlex, valor = 300.0)) {
-        println("Transferência sucedida")
-    } else {
-        println("Falha na transferência")
+    try {
+        contaFran.transfere(destino = contaAlex, valor = 300.0, senha = 1)
+        println("Transferencia sucedida")
     }
+    catch ( e:SaldoInsuficienteException) {
+        println("Falha na transferência")
+        println("Saldo insuficiente")
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException) {
+        println("Falha na transferência")
+        println("Falha na autenticação")
+        e.printStackTrace()
+    } catch (e: Exception){
+        println("Erro desconhecido")
+        e.printStackTrace()
+    }
+
 
     println(contaAlex.saldo)
     println(contaFran.saldo)

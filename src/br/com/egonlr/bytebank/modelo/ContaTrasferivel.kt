@@ -1,5 +1,8 @@
 package br.com.egonlr.bytebank.modelo
 
+import br.com.egonlr.bytebank.exception.FalhaAutenticacaoException
+import br.com.egonlr.bytebank.exception.SaldoInsuficienteException
+
 abstract class ContaTrasferivel (
     titular: Cliente,
     numero: Int
@@ -8,12 +11,19 @@ abstract class ContaTrasferivel (
     numero = numero
 ) {
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
-        if (saldo >= valor) {
-            saldo -= valor
-            destino.deposita(valor)
-            return true
+    fun transfere(valor: Double, destino: Conta, senha: Int): Boolean {
+        if (saldo < valor) {
+            throw SaldoInsuficienteException(
+                mensagem = "O saldo é insuficiente, saldo atual: $saldo, valor a ser subtraído $valor")
         }
+        if (!autentica(senha)) {
+            throw FalhaAutenticacaoException()
+        }
+
+        saldo -= valor
+        destino.deposita(valor)
+        return true
+
         return false
     }
 }
