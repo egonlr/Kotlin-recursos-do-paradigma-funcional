@@ -19,7 +19,7 @@ abstract class ContaTrasferivel (
         if (!autentica(senha)) {
             throw FalhaAutenticacaoException()
         }
-
+ //       throw NumberFormatException()
         saldo -= valor
         destino.deposita(valor)
         return true

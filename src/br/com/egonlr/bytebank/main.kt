@@ -1,35 +1,22 @@
 package br.com.egonlr.bytebank
 
-import br.com.egonlr.bytebank.exception.SaldoInsuficienteException
-import testaComportamentosConta
+import br.com.egonlr.bytebank.modelo.Endereco
 
 fun main() {
-    println("início main")
-
-    testaComportamentosConta()
-        println("fim main")
-}
-
-fun funcao1(){
-    println("início funcao1")
-    try {
-        funcao2()
-    } catch (e: SaldoInsuficienteException) {
-        e.printStackTrace()
-        println("SaldoInsuficienteException foi pega")
+    var enderecoNulo: Endereco? = Endereco(logradouro = "rua vergueiro")
+    println(enderecoNulo?.logradouro?.length)
+    enderecoNulo?.let {
+        println(it.logradouro.length)
+        val tamanhoComplemento: Int = it.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vazio")
+        println(tamanhoComplemento)
+        teste("")
+        teste(1)
     }
-    println("fim funcao1")
 }
 
-fun funcao2() {
-
-    println("início funcao2")
-
-    for (i in 1..5){
-        println(i)
-        throw SaldoInsuficienteException()
-    }
-
-
-    println("fim funcao2")
+fun teste(valor: Any)
+{
+    val numero: Int? = valor as? Int
+    println(numero)
 }
+
