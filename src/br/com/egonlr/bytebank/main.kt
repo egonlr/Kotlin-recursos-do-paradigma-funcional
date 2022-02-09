@@ -1,9 +1,22 @@
 package br.com.egonlr.bytebank
 
 fun main() {
-println(soma(1,5))
+    val minhaFuncao: () -> Unit = ::teste
+    println(minhaFuncao())
+    val minhaFuncaoClasse: () -> Unit = Teste()
+    println(minhaFuncaoClasse())
 }
 
-fun soma(a: Int, b: Int) : Int = a + b
+fun teste() {
+    println("Executa teste")
+}
+
+class Teste: () -> Unit {
+    override fun invoke() {
+        println("Executa invoke do Teste")
+
+    }
+}
+
 
 
