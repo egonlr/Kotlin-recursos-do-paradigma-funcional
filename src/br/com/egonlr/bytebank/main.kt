@@ -1,38 +1,36 @@
 package br.com.egonlr.bytebank
 
 fun main() {
-//    testaTipoFuncaoReferencia()
-//    testaTipoFuncaoClasse()
-    val minhaFuncaoLambda: () -> Unit = {
-        println("Executa como lambda")
-    }
-    println((minhaFuncaoLambda()))
-    val minhaFuncaoAnonima: () -> Unit = fun() {
-        println("Executa como anonima")
-    }
-    println((minhaFuncaoAnonima()))
+    testaTipoFuncaoReferencia()
+    testaTipoFuncaoClasse()
+//    val minhaFuncaoLambda: () -> Unit = {
+//        println("Executa como lambda")
+//    }
+//    println((minhaFuncaoLambda()))
+//    val minhaFuncaoAnonima: () -> Unit = fun() {
+//        println("Executa como anonima")
+//    }
+//    println((minhaFuncaoAnonima()))
 }
 
 fun testaTipoFuncaoClasse() {
-    val minhaFuncaoClasse: () -> Unit = Teste()
-    println(minhaFuncaoClasse())
+   val minhaFuncaoClasse: (Int, Int) -> Int = Soma()
+   println(minhaFuncaoClasse(10, 10))
 }
 
 fun testaTipoFuncaoReferencia() {
-    val minhaFuncao: () -> Unit = ::teste
-    println(minhaFuncao())
+    val minhaFuncao: (Int, Int) -> Int = ::soma
+    println(minhaFuncao(10,5))
 }
 
-fun teste() {
-    println("Executa teste")
+fun soma(a: Int, b:Int) : Int {
+    return (a + b)
 }
 
-class Teste: () -> Unit {
-    override fun invoke() {
-        println("Executa invoke do Teste")
-
-    }
+class Soma: (Int, Int) -> Int {
+    override fun invoke(a: Int, b: Int): Int = a + b
 }
+
 
 
 
