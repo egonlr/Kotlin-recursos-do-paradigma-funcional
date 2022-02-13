@@ -4,24 +4,23 @@ import br.com.egonlr.bytebank.modelo.Endereco
 import br.com.egonlr.bytebank.teste.teste
 
 fun main() {
-    Endereco().let{
+//    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3146)
+//    val endercoEmMaiuscula = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
+//    println(endercoEmMaiuscula)
 
-    }
-    "".let(::testeRecebeString)
+    Endereco(logradouro = "rua vergueiro", numero = 3146)
+        .let { endereco ->
+            "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
+        }.let (::println)
 
-    1.let{
-
-    }
-    teste(1, {})
-}
-
-fun testeRecebeString(valor: String){
-
-}
-//higher order function (funçao que recebe funçao)
-fun teste(teste: Int, bloco: () -> Unit) {
+    listOf(Endereco(complemento = "casa"),
+        Endereco(),
+        Endereco(complemento = "apartamentos"))
+        .filter { endereco -> endereco.complemento.isNotEmpty()  }
+        .let(::println)
 
 }
+
 
 
 
