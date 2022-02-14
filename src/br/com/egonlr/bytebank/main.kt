@@ -3,7 +3,6 @@ package br.com.egonlr.bytebank
 import br.com.egonlr.bytebank.modelo.Autenticavel
 import br.com.egonlr.bytebank.modelo.Endereco
 import br.com.egonlr.bytebank.modelo.SistemaInterno
-import br.com.egonlr.bytebank.teste.teste
 
 fun main() {
 //    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3146)
@@ -11,8 +10,8 @@ fun main() {
 //    println(endercoEmMaiuscula)
 
     Endereco(logradouro = "rua vergueiro", numero = 3146)
-        .let { endereco ->
-            "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
+        .apply {
+            "$logradouro, $numero".toUpperCase()
         }.let (::println)
 
 //    listOf(Endereco(complemento = "casa"),
