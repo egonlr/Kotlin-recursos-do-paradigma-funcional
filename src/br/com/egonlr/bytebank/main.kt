@@ -1,19 +1,25 @@
 package br.com.egonlr.bytebank
 
 import br.com.egonlr.bytebank.modelo.*
+import br.com.egonlr.bytebank.teste.testaHOF
 
 fun main() {
+    testaHOF()
+
+}
+
+fun testaRun() {
     val taxaAnual = 0.05
     val taxaMensal = taxaAnual / 12
     println("Taxa mensal $taxaMensal")
 
     val contaPoupanca = ContaPoupanca(Cliente(nome = "Alex", cpf = "111.111.111-11", senha = 1234), 1000)
     contaPoupanca.run {
-            deposita(1000.0)
-            saldo * taxaMensal
-        }.let {rendimentoMensal ->
-            println("Rendimento mensal: $rendimentoMensal")
-        }
+        deposita(1000.0)
+        saldo * taxaMensal
+    }.let { rendimentoMensal ->
+        println("Rendimento mensal: $rendimentoMensal")
+    }
 
     val rendimentoAnual = run {
         var saldo: Double = contaPoupanca.saldo
@@ -23,7 +29,6 @@ fun main() {
         saldo
     }
     println("Rendimento anual: $rendimentoAnual")
-
 }
 
 fun testaWith() {
