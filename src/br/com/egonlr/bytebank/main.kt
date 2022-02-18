@@ -5,49 +5,23 @@ import br.com.egonlr.bytebank.modelo.Endereco
 import br.com.egonlr.bytebank.modelo.SistemaInterno
 
 fun main() {
-//    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3146)
-//    val endercoEmMaiuscula = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
-//    println(endercoEmMaiuscula)
-
-    run {
-        println("Execução do run sem extensão")
+    with(Endereco()) {
+        logradouro = "rua vegueiro"
+        numero = 3185
+        bairro = "Vila Mariana"
+        cidade = "São Paulo"
+        estado = "SP"
+        cep = "02310-063"
+        complemento = "apartamento"
+        completo()
+    }.let {endercoCompleto: String ->
+        println(endercoCompleto)
     }
-
-    val endereco = Endereco()
-        .also {
-            println("Criando endereço")
-        }
-        .apply {
-        logradouro = "rua vergueiro"
-        numero = 3146}
-
-    with(endereco) {
-            "$logradouro, $numero".toUpperCase()
-        }.let (::println)
-
-//    listOf(Endereco(complemento = "casa"),
-//        Endereco(),
-//        Endereco(complemento = "apartamentos"))
-//        .filter( predicate = { endereco -> endereco.complemento.isNotEmpty()  })
-//        .let(block = (::println))
-
-    soma(1, 5, resultado = (::println))
-
-    val autenticavel = object : Autenticavel {
-        val senha = 1234
-        override fun autentica(senha: Int) = this.senha == senha
-    }
-
-    SistemaInterno().entra(autenticavel, 1234) {
-        println("Realizar pagamento")
-    }
-
 
 }
 
-fun soma(a: Int, b:Int, resultado: (Int) -> Unit) {
-    resultado(a + b)
-}
+
+
 
 
 
